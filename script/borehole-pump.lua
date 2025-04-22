@@ -1,18 +1,35 @@
 local NO_FLUID_ON_THIS_SURFACE = -1
 
 local BOREHOLE_PUMP_FIXED_RECIPES = {
-    ["nauvis"] = "borehole-pump-water",
-    ["gleba"] = "borehole-pump-water",
-    ["vulcanus"] = "borehole-pump-lava",
-    ["fulgora"] = "borehole-pump-heavy-oil",
-    ["aquilo"] = "borehole-pump-ammoniacal-solution",
-    ["cerys"] = "borehole-pump-water",
-    ["maraxsis"] = "borehole-pump-maraxsis-saline-water",
-    ["maraxsis-trench"] = "borehole-pump-lava",
-    ["tenebris"] = "borehole-pump-sulfuric-acid",
+    ["nauvis"] = "water",
+    ["gleba"] = "water",
+    ["vulcanus"] = "lava",
+    ["fulgora"] = "heavy-oil",
+    ["aquilo"] = "ammoniacal-solution",
+    ["cerys"] = "water",
+    ["maraxsis"] = "maraxsis-saline-water",
+    ["maraxsis-trench"] = "lava",
+    ["tenebris"] = "sulfuric-acid",
     ["muluna"] = NO_FLUID_ON_THIS_SURFACE,
     ["luna"] = NO_FLUID_ON_THIS_SURFACE,
-    ["corrundum"] = "borehole-pump-petroleum-gas",
+    ["corrundum"] = "petroleum-gas",
+    ["lignumis"] = "water",
+    ["moshine"] = "molten-iron",
+    ["aiur"] = "water",
+    ["tiber"] = "water",
+    ["arrakis"] = NO_FLUID_ON_THIS_SURFACE,
+    ["char"] = "lava",
+    ["terrapalus"] = "water",
+    ["castra"] = "light-oil",
+    ["janus"] = NO_FLUID_ON_THIS_SURFACE,
+    ["nix"] = "dark-matter-fluid",
+    ["cubium"] = "ultradense-lava",
+    ["planet-dea-dia"] = NO_FLUID_ON_THIS_SURFACE,
+    ["prosephina"] = "mineral-water",
+    ["lemures"] = "lava",
+    ["frozeta"] = NO_FLUID_ON_THIS_SURFACE,
+    ["ringworld"] = NO_FLUID_ON_THIS_SURFACE,
+    ["shipyard"] = "gray-goo",
 }
 local BOREHOLE_PUMP_SMOKE_OFFSETS = {
     [defines.direction.north] = {-1.2, -2.1},
@@ -61,7 +78,7 @@ factorissimo.on_event(factorissimo.events.on_built(), function(event)
         return
     end
 
-    borehole.set_recipe(fixed_recipe)
+    borehole.set_recipe("borehole-pump-" .. fixed_recipe)
     borehole.recipe_locked = true
 
     local smokestack = surface.create_entity {

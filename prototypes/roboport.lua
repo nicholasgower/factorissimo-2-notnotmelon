@@ -71,6 +71,7 @@ data:extend {{
 local hidden_construction_robot = table.deepcopy(data.raw["construction-robot"]["construction-robot"])
 hidden_construction_robot.name = "factory-hidden-construction-robot"
 hidden_construction_robot.minable = nil
+hidden_construction_robot.next_upgrade = nil
 hidden_construction_robot.placeable_by = nil
 hidden_construction_robot.created_effect = {
     type = "direct",
@@ -112,7 +113,7 @@ data:extend {{
     hidden = true,
     flags = {"only-in-cursor"},
     place_result = "factory-hidden-construction-robot",
-    stack_size = 10000,
+    stack_size = 1000,
 }}
 
 local roboport = table.deepcopy(data.raw["roboport"]["roboport"])
